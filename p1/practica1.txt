@@ -1,0 +1,45 @@
+Aresio Rosende Coto - a.rosendec
+
+Procesamiento de lenguajes
+Bloque I
+
+
+Necesitamos crear un programa que analice un archivo de texto para contar:
+	- El número de caracteres no blancos que lo forman
+	- El número de palabras que hay en dicho archivo
+	- El número de palabras formadas solo por letras mayúsculas
+	- El número de palabras formadas solo por letras minúsculas
+	- El número de palabras formadas solo por dígitos
+	- El número de frases
+
+Para ello, haremos uso de 6 diferentes contadores, que definiremos en la seccion de declaraciones:
+	- charCounter, para contar caracteres
+	- wordCounter, para contar palabras
+	- uppCaseWordCounter, para contar las palabras mayúsculas
+	- lowCaseWordCounter, para contar las palabras minúsculas
+	- numWordCounter, para contar las palabras numéricas
+	- phraseCounter, para contar las frases
+También en la misma sección definiremos los términos:
+	- word   -> un conjunto de 1 o mas caracteres seguidos diferentes a los caracteres en blanco
+	- phrase -> un conjunto de 1 o mas caracteres seguidos diferentes a los caracteres en blanco, y cuyo ultimo caracter es un punto
+
+En la sección de reglas, definiremos 5 reglas diferentes:
+	- [A-Z]+	-> para las palabras mayúsculas, incrementa uppCaseWordCounter
+	- [a-z]+    -> para las palabras minúsculas, incrementa lowCaseWordCounter
+	- [0-9]+ 	-> para las palabras numéricas, incrementa numWordCounter
+	- {phrase}  -> para las frases, incrementa phraseCounter
+	- {word}	-> para las palabras
+Todas estas reglas, además, incrementarán wordCounter en una unidad y charCounter con el valor de yyleng.
+
+La seccion de código será la más simple. Se inicializará el analizador léxico mediante la función yylex() y después se añadirá un printf para mostrar, en forma de tabla, el valor de los contadores.
+
+Una peculiaridad de este programa es que define una frase como una palabra acabada en un punto.
+Así, al detectar una frase, aumenta el contador de frase, y, además, aumenta el contador de palabras para añadir la palabra que forma esa frase.
+	Ejemplos de frases:
+		a.		-> es una frase
+		a.a 	-> no es una frase
+		....... -> es solo una frase
+		a.a. 	-> es solo una frase
+
+Para ejecutar el programa se aporta un Makefile
+Mediante el comando 'make all' se compilará el programa, y con los comandos 'make run1', 'make run2' y 'make run3' se ejecutará el programa con los diferentes archivos de prueba

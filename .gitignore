@@ -1,4 +1,5 @@
 lex.yy.c
+practica1
 practica2
-practica2.tab.*
+*.tab.*
 *.zip
