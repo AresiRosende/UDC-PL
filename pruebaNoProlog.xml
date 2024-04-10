@@ -1,0 +1,8 @@
+<!-- Lista de tareas -->
+<nota>
+	<id>1</id>
+	<autor>Yo</autor>
+	<titulo>PL. Importante</titulo>
+	<fecha>10/10/2022 15:00</fecha>
+	<descripcion>No olvidar las prácticas de PL!</descripcion>
+</nota>

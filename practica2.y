@@ -25,8 +25,11 @@ extern int yylex();
 
 S
 	: XMLPROLOG body
+	| body
 	| body XMLPROLOG {
-		printf("Error: la etiqueta del prólogo ha de ser el primer elemento del archivo\e[0m");
+		printf("\n\n");
+		printf("\e[0;31mError: la etiqueta del prólogo ha de ser el primer elemento del archivo\e[0m\n");
+		printf("\n\n");
 		exit(0);
 		}			
 ;
@@ -102,9 +105,15 @@ content
 int main(int argc, char *argv[]) {
 	extern FILE *yyin;
 
+	char *ext = strrchr(argv[1], '.');
+	if (strcmp(ext, ".xml") != 0) {
+		printf("\n\n\e[0;33mNo es un archivo XML\e[0m\n\n\n");
+		exit(0);
+	}
+
 	yyin = fopen(argv[1], "r");
 	if (yyin == NULL) {
-		printf("Error: no se pudo abrir el archivo\n");
+		printf("\n\e[0;31mError: no se pudo abrir el archivo\e[0m\n\n");
 	} else {
 		yyparse();
 		fclose(yyin);

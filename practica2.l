@@ -20,12 +20,18 @@ prolog			"<?xml version=\"1.0\" encoding=\""{encoding}"\"?>"
 "<"								{return TAG_START_OPEN;}
 "</"							{return TAG_START_CLOSE;}
 ">"								{return TAG_END;}
-"<!--"[^-]*"-->"				{return COMMENT;}
+"<!--".*"--".*"-->"				{printf("\n\n\e[0;31mError en la linea %d\nUn comentario no puede contener la cadena '--' \e[0m\n\n\n", yylineno);exit(0);}
+"<!--".*"-->"					{return COMMENT;}
 ({letter})({letter}|{number})*	{yylval.string=strdup(yytext); return TAGNAME;}  /*tiene que empezar por una letra*/
 {tagContent}					{return TAGCONTENT;} 		/*no nos importa el contenido*/
 . 								{}		/*para evitar que printee caracteres que no entiende*/
 %%
 
+
+int yyerror(){
+	printf("\n\n\e[0;31mEncoding invalido: ha de ser UTF-8 o UTF-16\e[0m\n\n\n");
+	exit(0);
+}
 
 int yywrap(){
 	printf("\n\n\e[0;32mSintaxis XML correcta.\e[0m\n\n\n");
