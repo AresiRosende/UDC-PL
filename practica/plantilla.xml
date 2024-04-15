@@ -1,0 +1,40 @@
+<?xml version="1." encoding="UTF-8"?>
+<race>
+	<circuit></circuit>
+	<totalLaps></totalLaps>
+	<driverNum></driverNum>
+	<driverName></driverName>
+	<laps>
+		<lap>
+			<lapNumber></lapNumber>
+			<incidencies></incidencies>
+			<lapInfo>
+				<tyre></tyre>
+				<tyreLife></tyreLife>
+				<sector1></sector1>
+				<sector2></sector2>
+				<sector3></sector3>
+				<lapTime></lapTime>
+			</lapInfo>
+		</lap>
+	</laps>
+</race>
+
+
+si salen de pits no cuenta el tiempo del primer sector asi que tiene que checkear si incidencies pitStop entonces sector1 == 00:00.000 
+
+valoresde de incidencias
+	PitStop ->
+		Comprueba que los neumaticos hayan cambiado, que no haya mas de 3 tipos de neumaticos usados sin ser FW o IM, que el sector1 sea igual a 0, la suma de los otros dos tiene que ser igual al tiempo de vuelta, pero ese tiempo no vale para la vuelta rapida personal (si los sectores 2 y 3)
+	RedFlag ->
+		No hay que comprobar nada
+	WarmingLap ->
+		Comprueba que la vuelta anterior fue una RedFlag y ademas esta saliendo de los pits, asi que lo mismo que en PitStop
+	YellowFlag ->
+		No hay que comprobar nada
+	DNF ->
+		Se comprueba que es la ultima vuelta
+	DSQ	->
+		Se comprueba que es la ultima vuelta
+	BnWFlag ->
+		No puede haber dos BnWFlag para un mismo piloto en una misma carrera
