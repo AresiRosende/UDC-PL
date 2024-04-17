@@ -311,10 +311,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:35.247</sector1>
+				<sector2>00:43.325</sector2>
+				<sector3>00:18.717</sector3>
+				<lapTime>01:37.289</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -323,10 +323,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:35.232</sector1>
+				<sector2>00:43.367</sector2>
+				<sector3>00:18.760</sector3>
+				<lapTime>01:37.359</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -335,10 +335,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:35.174</sector1>
+				<sector2>00:43.405</sector2>
+				<sector3>00:18.762</sector3>
+				<lapTime>01:37.341</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -347,10 +347,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:35.509</sector1>
+				<sector2>00:43.309</sector2>
+				<sector3>00:18.964</sector3>
+				<lapTime>01:37.782</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -359,10 +359,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:35.337</sector1>
+				<sector2>00:43.413</sector2>
+				<sector3>00:18.893</sector3>
+				<lapTime>01:37.643</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -371,10 +371,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:35.308</sector1>
+				<sector2>00:43.380</sector2>
+				<sector3>00:18.763</sector3>
+				<lapTime>01:37.451</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -383,10 +383,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:35.348</sector1>
+				<sector2>00:43.380</sector2>
+				<sector3>00:18.907</sector3>
+				<lapTime>01:37.635</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -395,22 +395,22 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:35.389</sector1>
+				<sector2>00:43.453</sector2>
+				<sector3>00:20.952</sector3>
+				<lapTime>01:39.794</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
 			<lapNumber>34</lapNumber>
-			<incidencies></incidencies>
+			<incidencies>PitStop</incidencies>
 			<lapInfo>
-				<tyre></tyre>
-				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<tyre>C1</tyre>
+				<tyreLife>0</tyreLife>
+				<sector1>00:54.167</sector1>
+				<sector2>00:42.439</sector2>
+				<sector3>00:18.437</sector3>
+				<lapTime>01:55.043</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -419,10 +419,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.693</sector1>
+				<sector2>00:42.634</sector2>
+				<sector3>00:18.444</sector3>
+				<lapTime>01:35.771</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -431,10 +431,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.613</sector1>
+				<sector2>00:42.461</sector2>
+				<sector3>00:18.279</sector3>
+				<lapTime>01:35.353</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -443,10 +443,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.542</sector1>
+				<sector2>00:42.377</sector2>
+				<sector3>00:18.462</sector3>
+				<lapTime>01:35.381</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -455,10 +455,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.657</sector1>
+				<sector2>00:42.371</sector2>
+				<sector3>00:18.459</sector3>
+				<lapTime>01:35.487</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -467,10 +467,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.824</sector1>
+				<sector2>00:42.625</sector2>
+				<sector3>00:18.521</sector3>
+				<lapTime>01:35.970</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -479,10 +479,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.714</sector1>
+				<sector2>00:42.464</sector2>
+				<sector3>00:18.630</sector3>
+				<lapTime>01:35.808</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -491,10 +491,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.409</sector1>
+				<sector2>00:42.580</sector2>
+				<sector3>00:18.585</sector3>
+				<lapTime>01:35.574</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -503,10 +503,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.560</sector1>
+				<sector2>00:44.127</sector2>
+				<sector3>00:18.605</sector3>
+				<lapTime>01:37.292</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -515,10 +515,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.687</sector1>
+				<sector2>00:42.761</sector2>
+				<sector3>00:18.644</sector3>
+				<lapTime>01:36.092</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -527,10 +527,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.544</sector1>
+				<sector2>00:42.578</sector2>
+				<sector3>00:18.493</sector3>
+				<lapTime>01:35.615</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -539,10 +539,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.420</sector1>
+				<sector2>00:42.593</sector2>
+				<sector3>00:18.623</sector3>
+				<lapTime>01:35.636</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -551,10 +551,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.625</sector1>
+				<sector2>00:42.578</sector2>
+				<sector3>00:18.624</sector3>
+				<lapTime>01:35.827</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -563,10 +563,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.693</sector1>
+				<sector2>00:42.641</sector2>
+				<sector3>00:18.528</sector3>
+				<lapTime>01:35.862</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -575,10 +575,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.490</sector1>
+				<sector2>00:42.591</sector2>
+				<sector3>00:18.780</sector3>
+				<lapTime>01:35.861</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -587,10 +587,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.375</sector1>
+				<sector2>00:42.740</sector2>
+				<sector3>00:18.716</sector3>
+				<lapTime>01:35.831</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -599,10 +599,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.511</sector1>
+				<sector2>00:42.946</sector2>
+				<sector3>00:18.551</sector3>
+				<lapTime>01:36.008</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -611,10 +611,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.329</sector1>
+				<sector2>00:42.862</sector2>
+				<sector3>00:18.878</sector3>
+				<lapTime>01:36.069</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -623,10 +623,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:34.115</sector1>
+				<sector2>00:42.651</sector2>
+				<sector3>00:18.867</sector3>
+				<lapTime>01:35.633</lapTime>
 			</lapInfo>
 		</lap>
 		<lap>
@@ -635,10 +635,10 @@
 			<lapInfo>
 				<tyre></tyre>
 				<tyreLife></tyreLife>
-				<sector1></sector1>
-				<sector2></sector2>
-				<sector3></sector3>
-				<lapTime></lapTime>
+				<sector1>00:33.924</sector1>
+				<sector2>00:42.332</sector2>
+				<sector3>00:18.470</sector3>
+				<lapTime>01:34.726</lapTime>
 			</lapInfo>
 		</lap>
 	</laps>
