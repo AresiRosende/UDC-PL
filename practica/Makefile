@@ -3,7 +3,7 @@ ALONSO = Suzuka-ALO14.xml
 SAINZ = Suzuka-SAI55.xml
 LIB = lfl
 
-all: alo sai
+all: compile alo sai
 
 compile:
 		flex $(FUENTE).l

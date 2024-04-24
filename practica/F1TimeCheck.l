@@ -6,8 +6,8 @@ int yyerror();
 
 %}
 
-driverName		([A-Z][a-z]+\s[A-Z][a-z]+)
-circuit			[A-Za-z\s\'\,\.]*
+driverName		([A-Z][A-Za-z]+\s[A-Z][A-Za-z]+)
+circuit			[A-Za-z\s\'\,\.]+
 tyre			(IM|FW|C[1-5])
 time 			[0-9][0-9]\:[0-9][0-9]\.[0-9][0-9][0-9]
 num				[0-9]{1,3}
@@ -29,7 +29,7 @@ prolog			("<?xml").*("?>")
 "</race>"						{return CLOSE_RACE;}
 "<circuit>"						{return OPEN_CIRCUIT;}
 "</circuit>"					{return CLOSE_CIRCUIT;}
-"<totalLaps>"						{return OPEN_TOTALLAPS;}
+"<totalLaps>"					{return OPEN_TOTALLAPS;}
 "</totalLaps>"					{return CLOSE_TOTALLAPS;}
 "<driverNum>"					{return OPEN_DORSAL;}
 "</driverNum>"					{return CLOSE_DORSAL;}
