@@ -6,7 +6,7 @@ The goal of it is to analyze a given xml file containing the timing on each lap 
 ## XML Template
 The admited xml files must have the following syntax
 ```
-<?xml version="1." encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <race>
 	<circuit></circuit>
 	<totalLaps></totalLaps>
@@ -30,24 +30,24 @@ The admited xml files must have the following syntax
 ```
 
 ## Validations
-The program will check the following aspects
-- The xml file follows the structure of the template
-- No tag can be null except for the 'incidencies' one
-- TotalLaps must be a 2-digit integer (as there's no circuit with 100+ laps)
-- driverNum must be a 2-digit integer
-- driverName can only contain letters. Names with ' in them should be written without it (Pato O'Ward -> Pato OWard)
-- the total number of 'lap' registers inside 'laps' must be equal to totalLaps (except if there's and incidency such as DSQ, DNF or Lapped)
-- lapNumber should never be higher than totalLaps, and should be increasing by 1 for each register
-- incidencias can only accept 7 different values
-	- RedFlag
-	- YellowFlag
-	- BnWFlag (the program will check that there was no other black and white flag shown to the driver)
-	- DSQ, DNF, Lapped (the program will end there and print the expected values)
-	- Lapped ()
-	- PitStop (checks that there werent used more than 3 different compounds, excluding full wet and intermediates)
-- tyres can only be C1-5, Full Wet (FW) and Intermediate (IM), and there cannot be more than 3 standard compounds in a single race
-- tyrelife must increase by one, except if there is a pitstop
-- the sum of all sectors must be equal to lapTime
+The program will check the following aspects:
+- [x] The xml file follows the structure of the template
+- [x] No tag can be null except for the 'incidencies' one
+- [x] totalLaps must be an integer of 1-3 digits
+- [x] driverNum must be an integer of 1-3 digits
+- [x] driverName and circuit can only contain letters. Length has to be less than 80 chars. Names with ' in them should be written without it (Pato O'Ward -> Pato OWard)
+- [x] the total number of 'lap' registers inside 'laps' must be equal to totalLaps (except if there's an incidency such as DSQ, DNF or Lapped)
+- [x] lapNumber should never be higher than totalLaps, and should be increasing by 1 for each register
+- [x] incidencies can only accept 7 different values
+	- [x] RedFlag
+	- [x] YellowFlag
+	- [x] TrackLimits (this lap's times will not be taken into account for the quickest sector or lap)
+	- [x] DSQ, DNF, Lapped (the program will end there and print the expected values)
+	- [x] PitStop (checks that there werent used more than 3 different compounds, excluding full wet and intermediates)
+- [x] tyres can only be C1-5, Full Wet (FW) and Intermediate (IM), and there cannot be more than 3 standard compounds in a single race
+- [x] tyrelife must increase by one, except if there is a pitstop
+- [ ] the sum of all sectors must be equal to lapTime
+- [x] For multiple reasons, there may be times that a sector has no time (NoTime), in which cases, the total of the sectors will not be sumed
 
 ## Output
 Once a file has been validated, the program will return

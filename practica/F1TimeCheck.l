@@ -1,30 +1,30 @@
 %{
 #include <stdlib.h>
-#include "practica2.tab.h"
+#include "F1TimeCheck.tab.h"
 
 int yyerror();
 
 %}
 
-driverName		([A-Z][A-Za-z]+\s[A-Z][A-Za-z]+)
-circuit			[A-Za-z\s\'\,\.]+
+prolog 			"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+text			[a-zA-Z\s]+
 tyre			(IM|FW|C[1-5])
 time 			[0-9][0-9]\:[0-9][0-9]\.[0-9][0-9][0-9]
 num				[0-9]{1,3}
-prolog			("<?xml").*("?>")
 
 %%
 
 "\n"							{yylineno++;}
-{prolog}						{;}
+{prolog}						{return XMLPROLOG;}
 
 "RedFlag"						{return RED_FLAG;}
 "YellowFlag"					{return YELLOW_FLAG;}
 "PitStop"						{return PIT_STOP;}
 "DNF"							{return DNF;}
 "DSQ"							{return DSQ;}
-"WarmingLap"					{return WARMING_LAP;}
+"Lapped"						{return LAPPED;}
 "BnWFlag"						{return BNW_FLAG;}
+"NoTime"						{return NOTIME;}
 "<race>"						{return OPEN_RACE;}
 "</race>"						{return CLOSE_RACE;}
 "<circuit>"						{return OPEN_CIRCUIT;}
@@ -40,7 +40,7 @@ prolog			("<?xml").*("?>")
 "<lap>"							{return OPEN_LAP;}
 "</lap>"						{return CLOSE_LAP;}
 "<lapNumber>"					{return OPEN_LAPNUMBER;}
-"</lapNumber>					{return CLOSE_LAPNUMBER;}
+"</lapNumber>"					{return CLOSE_LAPNUMBER;}
 "<incidencies>"					{return OPEN_INCIDENCIES;}
 "</incidencies>"				{return CLOSE_INCIDENCIES;}
 "<lapInfo>"						{return OPEN_LAPINFO;}
@@ -58,19 +58,39 @@ prolog			("<?xml").*("?>")
 "<lapTime>"						{return OPEN_LAPTIME;}
 "</lapTime>"					{return CLOSE_LAPTIME;}
 
+{num}							{yylval.string=strdup(yytext); return NUM;}
+{text}							{yylval.string=strdup(yytext); return TEXT;}
+{tyre} 							{yylval.string=strdup(yytext); return TYRE;}
+{time} 							{yylval.string=strdup(yytext); return TIME;}
 
-num								{yylval.valInt=atoi(yytext); return NUM}
-driverName						{yylval.string=strdup(yytext); return NAME}
-circuit							{yylval.string=strdup(yytext); return CIRCUIT}
-tyre 							{yylval.string=strdup(yytext); return TYRE}
-time 							{yylval.string=strdup(yytext); return TIME}
-
-
-. 								{}		/*para evitar que printee caracteres que no entiende*/
+.								{} /*so as not to print character it doesnt*/
 %%
 
-
-int yyerror(){
-	printf("\n\n\e[0;31mError en la linea: %d\e[0m\n\n\n", yylineno);
+int yyerror() {
+	printf("\e[0;31mError: file structure is different from expected\e[0m\n");
+	printf("\e[0;33m\nShould be like this:\n");
+	printf("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+		   "<race>\n"
+		   "	<circuit></circuit>					*string of text*\n"
+		   "	<totalLaps></totalLaps> 				*number of 1 to 3 digits*\n"				
+		   "	<driverNum></driverNum>					*number of 1 to 3 digits*\n"
+		   "	<driverName></driverName>				*string of text*\n"
+		   "	<laps>\n"
+		   "		<lap>\n"
+		   "			<lapNumber></lapNumber>			*number of 1 to 3 digits*\n"
+		   "			<incidencies></incidencies>\n"
+		   "			<lapInfo>\n"
+		   "				<tyre></tyre>	 		*C1, C2, C3, C4, C5, FW or IM*\n"
+		   "				<tyreLife></tyreLife>		*number of 1 to 3 digits*\n"
+		   "				<sector1></sector1>		*format mm:ss.xxx*\n"
+		   "				<sector2></sector2>		*format mm:ss.xxx*\n"
+		   "				<sector3></sector3>		*format mm:ss.xxx*\n"
+		   "				<lapTime></lapTime>		*format mm:ss.xxx*\n"
+		   "			</lapInfo>\n"
+		   "		</lap>\n"
+		   "	</laps>\n"
+		   "</race>\n\n"
+		   "For more information, please consult the README.md file\e[0m\n"
+	);
 	exit(0);
 }
