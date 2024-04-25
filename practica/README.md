@@ -5,8 +5,8 @@ The goal of it is to analyze a given xml file containing the timing on each lap 
 
 ## TODO
 - [ ] La funcion para sumar los tiempos
-- [ ] No reconoce bien los arrays de tiempo y de compuestos
-- [ ] Guarda mal la vuelta en la que suceden las cosas
+- [ ] El nombre del piloto y el del circuito los copia del reves
+- [ ] No reconoce bien los FW y IM
 
 ## XML Template
 The admited xml files must have the following syntax

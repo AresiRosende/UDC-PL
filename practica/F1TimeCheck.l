@@ -8,7 +8,7 @@ int yyerror();
 
 prolog 			"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 text			[a-zA-Z\s]+
-tyre			(IM|FW|C[1-5])
+tyre			[IM|FW|C[1-5]]
 time 			[0-9][0-9]\:[0-9][0-9]\.[0-9][0-9][0-9]
 num				[0-9]{1,3}
 
@@ -60,7 +60,7 @@ num				[0-9]{1,3}
 
 {num}							{yylval.string=strdup(yytext); return NUM;}
 {text}							{yylval.string=strdup(yytext); return TEXT;}
-{tyre} 							{yylval.string=strdup(yytext); return TYRE;}
+{tyre} 							{yylval.string=strdup(yytext); printf("\n\ntyre:%s\n\n", yytext); return TYRE;}
 {time} 							{yylval.string=strdup(yytext); return TIME;}
 
 .								{} /*so as not to print character it doesnt*/

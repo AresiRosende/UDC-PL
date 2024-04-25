@@ -16,8 +16,8 @@ char circuitName[80];
 char currentTyre[2];
 char driverName[80];
 char stringAux[80];
-char times[4][9];
-char tyres[4][2];
+char times[4][20];
+char tyres[4][10];
 int laps[4];
 int tyrelife[4];
 
@@ -50,6 +50,7 @@ void yywrap() {
 	printf("Laps: %d\n", totallaps);
 	if (notCompleted)
 		printf("Completed laps: %d\n", currentLap);
+	printf("%s | %d\n",driverName, driverNumber);
 	printf("Fastest sector 1 : %s in lap %d with %s tyres on %d laps\n", times[0], laps[0], tyres[0], tyrelife[0]);
 	printf("Fastest sector 2 : %s in lap %d with %s tyres on %d laps\n", times[1], laps[1], tyres[1], tyrelife[1]);
 	printf("Fastest sector 3 : %s in lap %d with %s tyres on %d laps\n", times[2], laps[2], tyres[2], tyrelife[2]);
@@ -166,14 +167,11 @@ lapNumber
 			printf("\n\n");
 			exit(0);	
 			}
-		else if (atoi($2) != currentLap++){
+		else if (atoi($2) != currentLap){
 				printf("\n\n");
 				printf("\e[0;31mError: Expected lap: %d and found lap: %s (line %d)\e[0m\n", currentLap, $2 ,yylineno);
 				printf("\n\n");
 				exit(0);	
-				}
-			else {
-				currentLap = currentLap++;
 				}
 		}
 	| OPEN_LAPNUMBER CLOSE_LAPNUMBER {
@@ -237,7 +235,6 @@ tyrelife
 				printf("\n\n");
 				exit(0);	
 		}
-		currentTyreLife++;
 	}
 	| OPEN_TYRELIFE CLOSE_TYRELIFE {
 		printf("\n\n");
@@ -249,7 +246,7 @@ tyrelife
 
 sector1
 	: OPEN_SECTOR1 TIME CLOSE_SECTOR1 {
-		if (currentLap == 1 || ((strcmp(times[0], $2)) < 0 && (invalidTime != 1)) ) {
+		if (currentLap == 1 || ((strcmp(times[0], $2)) > 0 && !invalidTime) ) {
 			strcpy(times[0], $2);
 			strcpy(tyres[0], currentTyre);
 			laps[0] = currentLap;
@@ -267,7 +264,7 @@ sector1
 
 sector2
 	: OPEN_SECTOR2 TIME CLOSE_SECTOR2 {
-		if (currentLap == 1 || ((strcmp(times[1], $2)) < 0 && (invalidTime != 1)) ) {
+		if (currentLap == 1 || ((strcmp(times[1], $2)) > 0 && !invalidTime) ) {
 			strcpy(times[1], $2);
 			strcpy(tyres[1], currentTyre);
 			laps[1] = currentLap;
@@ -285,7 +282,7 @@ sector2
 
 sector3
 	: OPEN_SECTOR3 TIME CLOSE_SECTOR3 {
-		if (currentLap == 1 || ((strcmp(times[2], $2)) < 0 && (invalidTime != 1))) {
+		if (currentLap == 1 || ((strcmp(times[2], $2)) > 0 && !invalidTime)) {
 			strcpy(times[2], $2);
 			strcpy(tyres[2], currentTyre);
 			laps[2] = currentLap;
@@ -303,7 +300,7 @@ sector3
 
 laptime
 	: OPEN_LAPTIME TIME CLOSE_LAPTIME  {
-		if (currentLap == 1 || ((strcmp(times[3], $2)) < 0 && (invalidTime != 1)) ) {
+		if (currentLap == 1 || ((strcmp(times[3], $2)) > 0 && !invalidTime) ) {
 			strcpy(times[3], $2);
 			strcpy(tyres[3], currentTyre);
 			laps[3] = currentLap;
@@ -317,6 +314,8 @@ laptime
 				exit(0);	
 			}
 		no_time = 0;
+		currentLap++;
+		currentTyreLife++;
 	}
 	| OPEN_SECTOR1 NOTIME CLOSE_SECTOR1 {no_time = 0;}
 	| OPEN_LAPTIME CLOSE_LAPTIME {
@@ -336,9 +335,13 @@ multiword
 int main(int argc, char *argv[]) {
 	extern FILE *yyin;
 
-#ifdef YYDEBUG
-  yydebug = 1;
-#endif
+char *a = "10:00.000";
+char *b = "01:00.000";
+
+if (strcmp(a, b) > 0)
+	printf("%s es mayor que %s\n\n",a , b);
+else 
+	printf("%s es mayor que %s\n\n", b ,a );
 
 
 	char *ext = strrchr(argv[1], '.');
