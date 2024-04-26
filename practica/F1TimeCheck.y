@@ -14,6 +14,7 @@ int no_time = 0;
 int compound1 = 0, compound2 = 0, compound3 = 0;
 char notCompleted[10] = "";
 char circuitName[80];
+char currentS1[20], currentS2[20], currentS3[20], currentLapTime[20];
 char currentTyre[2];
 char driverName[80];
 char stringAux[256];
@@ -43,7 +44,49 @@ void check_compounds() {
 }
 
 int calc_complete_time() {
-	return 0;
+	char aux[6];
+	int min1, min2, min3, mint;
+	int s1, s2, s3, st;
+	int ms1, ms2, ms3, mst;
+	int pluss;
+	char compare[20];
+
+	sprintf(aux, "%c%c", currentS1[0], currentS1[1]);
+	min1 = atoi(aux);
+	sprintf(aux, "%c%c", currentS2[0], currentS2[1]);
+	min2 = atoi(aux);
+	sprintf(aux, "%c%c", currentS3[0], currentS3[1]);
+	min3 = atoi(aux);
+
+	sprintf(aux, "%c%c", currentS1[3], currentS1[4]);
+	s1 = atoi(aux);
+	sprintf(aux, "%c%c", currentS2[3], currentS2[4]);
+	s2 = atoi(aux);
+	sprintf(aux, "%c%c", currentS3[3], currentS3[4]);
+	s3 = atoi(aux);
+
+	sprintf(aux, "%c%c%c", currentS1[6], currentS1[7], currentS1[8]);
+	ms1 = atoi(aux);
+	sprintf(aux, "%c%c%c", currentS2[6], currentS2[7], currentS2[8]);
+	ms2 = atoi(aux);
+	sprintf(aux, "%c%c%c", currentS3[6], currentS3[7], currentS3[8]);
+	ms3 = atoi(aux);
+
+
+	mst = ms1 + ms2 + ms3;
+	pluss = mst / 1000;
+	mst = mst % 1000;
+
+	st = s1 + s2 + s3 + pluss;
+	pluss = st / 60;
+	st = st % 60;
+
+	mint = min1 + min2 + min3 + pluss;
+
+	sprintf(compare, "%02d:%02d.%03d", mint, st, mst);
+
+	return strcmp(compare, currentLapTime);
+
 }
 
 
@@ -249,6 +292,7 @@ tyrelife
 
 sector1
 	: OPEN_SECTOR1 TIME CLOSE_SECTOR1 {
+		strcpy(currentS1, $2);
 		if (currentLap == 1 || ((strcmp(times[0], $2)) > 0 && !invalidTime) ) {
 			strcpy(times[0], $2);
 			strcpy(tyres[0], currentTyre);
@@ -267,6 +311,7 @@ sector1
 
 sector2
 	: OPEN_SECTOR2 TIME CLOSE_SECTOR2 {
+		strcpy(currentS2, $2);
 		if (currentLap == 1 || ((strcmp(times[1], $2)) > 0 && !invalidTime) ) {
 			strcpy(times[1], $2);
 			strcpy(tyres[1], currentTyre);
@@ -285,6 +330,7 @@ sector2
 
 sector3
 	: OPEN_SECTOR3 TIME CLOSE_SECTOR3 {
+		strcpy(currentS3, $3);
 		if (currentLap == 1 || ((strcmp(times[2], $2)) > 0 && !invalidTime)) {
 			strcpy(times[2], $2);
 			strcpy(tyres[2], currentTyre);
@@ -303,6 +349,7 @@ sector3
 
 laptime
 	: OPEN_LAPTIME TIME CLOSE_LAPTIME  {
+		strcpy(currentLapTime, $2);
 		if (currentLap == 1 || ((strcmp(times[3], $2)) > 0 && !invalidTime) ) {
 			strcpy(times[3], $2);
 			strcpy(tyres[3], currentTyre);
@@ -310,7 +357,7 @@ laptime
 			tyrelife[3] = currentTyreLife;
 		}
 		if (!no_time)
-			if (calc_complete_time() == 1) {
+			if (calc_complete_time()) {
 				printf("\n\n");
 				printf("\e[0;31mError: The sum of the sectors doesnt amount to the full lap time on lap %d (line %d)\e[0m\n", currentLap,yylineno);
 				printf("\n\n");

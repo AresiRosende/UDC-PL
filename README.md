@@ -19,5 +19,5 @@ Consiste en un programa que comprueba que un archivo xml tenga una sintaxis corr
 
 
 ## Práctica Propia
-Consiste en un programa que verifique la validad de los registros de cada una de las vueltas de carrera de F1 de un piloto en un circuito
-Mejor explicado dentro de la propia carpeta
+Consiste en un programa que verifique la validez de los registros de cada una de las vueltas de carrera de F1 de un piloto en un circuito
+_Mejor explicado dentro de la propia carpeta_

@@ -3,6 +3,7 @@
 #include "F1TimeCheck.tab.h"
 
 int yyerror();
+int yylineno;
 
 %}
 
@@ -72,7 +73,7 @@ num				[0-9]{1,3}
 %%
 
 int yyerror() {
-	printf("\e[0;31mError: file structure is different from expected\e[0m\n");
+	printf("\e[0;31mError: file structure is different from expected (line %d)\e[0m\n", yylineno);
 	printf("\e[0;33m\nShould be like this:\n");
 	printf("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 		   "<race>\n"

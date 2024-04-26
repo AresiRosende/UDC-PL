@@ -4,8 +4,7 @@ This program was made using both Flex and Bison.
 The goal of it is to analyze a given xml file containing the timing on each lap of a driver and check if the values are valid. If they are, it will return the laps in which the driver made the fastests sectors and lap and the compound they were using
 
 ## TODO
-- [ ] La funcion para sumar los tiempos
-- [ ] El nombre del piloto y el del circuito los copia del reves
+- [ ] Comprobar todo
 
 ## XML Template
 The admited xml files must have the following syntax
