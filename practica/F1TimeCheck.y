@@ -281,7 +281,7 @@ tyrelife
 sector1
 	: OPEN_SECTOR1 TIME CLOSE_SECTOR1 {
 		strcpy(currentS1, $2);
-		if (!strcmp(times[0], "") || ((strcmp(times[0], $2)) > 0 && !invalidTime) ) {
+		if (!invalidTime && (!strcmp(times[0], "") || (strcmp(times[0], $2)) > 0)) {
 			strcpy(times[0], $2);
 			strcpy(tyres[0], currentTyre);
 			laps[0] = currentLap;
@@ -298,7 +298,7 @@ sector1
 sector2
 	: OPEN_SECTOR2 TIME CLOSE_SECTOR2 {
 		strcpy(currentS2, $2);
-		if (!strcmp(times[1], "") || ((strcmp(times[1], $2)) > 0 && !invalidTime) ) {
+		if (!invalidTime && (!strcmp(times[1], "") || (strcmp(times[1], $2)) > 0)) {
 			strcpy(times[1], $2);
 			strcpy(tyres[1], currentTyre);
 			laps[1] = currentLap;
@@ -315,7 +315,7 @@ sector2
 sector3
 	: OPEN_SECTOR3 TIME CLOSE_SECTOR3 {
 		strcpy(currentS3, $2);
-		if (!strcmp(times[2], "") || ((strcmp(times[2], $2)) > 0 && !invalidTime)) {
+		if (!invalidTime && (!strcmp(times[2], "") || (strcmp(times[2], $2)) > 0)) {
 			strcpy(times[2], $2);
 			strcpy(tyres[2], currentTyre);
 			laps[2] = currentLap;
@@ -334,7 +334,7 @@ laptime
 		if (!strcmp(notCompleted, ""))
 			yywrap;;
 		strcpy(currentLapTime, $2);
-		if (!strcmp(times[3], "") || ((strcmp(times[3], $2)) > 0 && !invalidTime) ) {
+		if (!invalidTime && (!strcmp(times[3], "") || (strcmp(times[3], $2)) > 0)) {
 			strcpy(times[3], $2);
 			strcpy(tyres[3], currentTyre);
 			laps[3] = currentLap;
@@ -363,24 +363,24 @@ multiword
 		strcat(temp, stringAux);
 		strcpy(stringAux, temp);
 	}
-	| TYRE multiword {
+	| TYRE multiword { 		/* very specific, but possible */
 		strcpy(temp, $1);
 		strcat(temp, " ");
 		strcat(temp, stringAux);
 		strcpy(stringAux, temp);
-	} 		/* very specific, but possible */
+	}
 	| TEXT {
 		strcpy(temp, $1);
 		strcat(temp, " ");
 		strcat(temp, stringAux);
 		strcpy(stringAux, temp);
 	}
-	| TYRE {
+	| TYRE { 				/* very specific, but possible */
 		strcpy(temp, $1);
 		strcat(temp, " ");
 		strcat(temp, stringAux);
 		strcpy(stringAux, temp);
-	}					/* very specific, but possible */
+	}		
 ;
 %%
 

@@ -20,11 +20,12 @@ ERRORNPS = $(FOLDER)errorNoPitStop.xml
 ERRORWS = $(FOLDER)errorWrongSectors.xml
 ERRORNTM = $(FOLDER)errorNoTimes.xml
 ERRORNTMP = $(FOLDER)errorNoTimesPartial.xml
+TRACKLIMITS = $(FOLDER)trackLimitsTest.xml
 LIB = lfl
 
 all: compile alo sai alb
 
-test: compile errors errornt1 errornt2 errornt3 errornt4 errornt5 erroroob1 erroroob2 errorml errorll errorwi errorwt errormt errornps errorws errorntm errorntmp
+test: compile errors errornt1 errornt2 errornt3 errornt4 errornt5 erroroob1 erroroob2 errorml errorll errorwi errorwt errormt errornps errorws errorntm errorntmp tracklimits
 
 compile:
 		@flex $(FUENTE).l
@@ -91,6 +92,10 @@ errorntm:
 errorntmp:
 	@echo "\033[95m - TEST 15\n    No times for sector 1 error test:\033[0m"
 	@./$(FUENTE) $(ERRORNTMP)
+tracklimits:
+	@echo "\033[95m - TEST 16\n    Track limits invalidates lap time test:\033[0m"
+	@./$(FUENTE) $(TRACKLIMITS)
+
 
 
 

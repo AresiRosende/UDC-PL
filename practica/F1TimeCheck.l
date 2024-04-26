@@ -25,7 +25,7 @@ num				[0-9]{1,3}
 "DNF"							{return DNF;}
 "DSQ"							{return DSQ;}
 "Lapped"						{return LAPPED;}
-"BnWFlag"						{return BNW_FLAG;}
+"TrackLimits"					{return TRACKLIMITS;}
 "NoTime"						{return NOTIME;}
 "<race>"						{return OPEN_RACE;}
 "</race>"						{return CLOSE_RACE;}
