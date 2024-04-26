@@ -293,7 +293,7 @@ tyrelife
 sector1
 	: OPEN_SECTOR1 TIME CLOSE_SECTOR1 {
 		strcpy(currentS1, $2);
-		if (currentLap == 1 || ((strcmp(times[0], $2)) > 0 && !invalidTime) ) {
+		if (!strcmp(times[0], "") || ((strcmp(times[0], $2)) > 0 && !invalidTime) ) {
 			strcpy(times[0], $2);
 			strcpy(tyres[0], currentTyre);
 			laps[0] = currentLap;
@@ -312,7 +312,7 @@ sector1
 sector2
 	: OPEN_SECTOR2 TIME CLOSE_SECTOR2 {
 		strcpy(currentS2, $2);
-		if (currentLap == 1 || ((strcmp(times[1], $2)) > 0 && !invalidTime) ) {
+		if (!strcmp(times[1], "") || ((strcmp(times[1], $2)) > 0 && !invalidTime) ) {
 			strcpy(times[1], $2);
 			strcpy(tyres[1], currentTyre);
 			laps[1] = currentLap;
@@ -330,8 +330,8 @@ sector2
 
 sector3
 	: OPEN_SECTOR3 TIME CLOSE_SECTOR3 {
-		strcpy(currentS3, $3);
-		if (currentLap == 1 || ((strcmp(times[2], $2)) > 0 && !invalidTime)) {
+		strcpy(currentS3, $2);
+		if (!strcmp(times[2], "") || ((strcmp(times[2], $2)) > 0 && !invalidTime)) {
 			strcpy(times[2], $2);
 			strcpy(tyres[2], currentTyre);
 			laps[2] = currentLap;
@@ -350,7 +350,7 @@ sector3
 laptime
 	: OPEN_LAPTIME TIME CLOSE_LAPTIME  {
 		strcpy(currentLapTime, $2);
-		if (currentLap == 1 || ((strcmp(times[3], $2)) > 0 && !invalidTime) ) {
+		if (!strcmp(times[3], "") || ((strcmp(times[3], $2)) > 0 && !invalidTime) ) {
 			strcpy(times[3], $2);
 			strcpy(tyres[3], currentTyre);
 			laps[3] = currentLap;
@@ -367,7 +367,7 @@ laptime
 		currentLap++;
 		currentTyreLife++;
 	}
-	| OPEN_SECTOR1 NOTIME CLOSE_SECTOR1 {no_time = 0;}
+	| OPEN_LAPTIME NOTIME CLOSE_LAPTIME {no_time = 0;currentLap++;currentTyreLife++;}
 	| OPEN_LAPTIME CLOSE_LAPTIME {
 		printf("\n\n");
 		printf("\e[0;31mError: No info found about lap time on lap %d (line %d)\e[0m\n", currentLap,yylineno);

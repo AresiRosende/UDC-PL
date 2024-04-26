@@ -73,28 +73,29 @@ num				[0-9]{1,3}
 %%
 
 int yyerror() {
-	printf("\e[0;31mError: file structure is different from expected (line %d)\e[0m\n", yylineno);
+	printf("\e[0;31mError: file structure is different from expected (line %d)\n", yylineno);
+	printf("Last string of text read: '%s'\e[0m\n", yytext);
 	printf("\e[0;33m\nShould be like this:\n");
 	printf("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 		   "<race>\n"
-		   "	<circuit></circuit>					*string of text*\n"
-		   "	<totalLaps></totalLaps> 				*number of 1 to 3 digits*\n"				
-		   "	<driverNum></driverNum>					*number of 1 to 3 digits*\n"
-		   "	<driverName></driverName>				*string of text*\n"
-		   "	<laps>\n"
-		   "		<lap>\n"
-		   "			<lapNumber></lapNumber>			*number of 1 to 3 digits*\n"
-		   "			<incidencies></incidencies>\n"
-		   "			<lapInfo>\n"
-		   "				<tyre></tyre>	 		*C1, C2, C3, C4, C5, FW or IM*\n"
-		   "				<tyreLife></tyreLife>		*number of 1 to 3 digits*\n"
-		   "				<sector1></sector1>		*format mm:ss.xxx*\n"
-		   "				<sector2></sector2>		*format mm:ss.xxx*\n"
-		   "				<sector3></sector3>		*format mm:ss.xxx*\n"
-		   "				<lapTime></lapTime>		*format mm:ss.xxx*\n"
-		   "			</lapInfo>\n"
-		   "		</lap>\n"
-		   "	</laps>\n"
+		   "  <circuit></circuit>                   *string of text*\n"
+		   "  <totalLaps></totalLaps>               *number of 1 to 3 digits*\n"				
+		   "  <driverNum></driverNum>               *number of 1 to 3 digits*\n"
+		   "  <driverName></driverName>             *string of text*\n"
+		   "  <laps>\n"
+		   "    <lap>\n"
+		   "      <lapNumber></lapNumber>           *number of 1 to 3 digits*\n"
+		   "      <incidencies></incidencies>\n"
+		   "      <lapInfo>\n"
+		   "        <tyre></tyre>	 		*C1, C2, C3, C4, C5, FW or IM*\n"
+		   "        <tyreLife></tyreLife>		*number of 1 to 3 digits*\n"
+		   "        <sector1></sector1>		*format mm:ss.xxx*\n"
+		   "        <sector2></sector2>		*format mm:ss.xxx*\n"
+		   "        <sector3></sector3>		*format mm:ss.xxx*\n"
+		   "        <lapTime></lapTime>		*format mm:ss.xxx*\n"
+		   "      </lapInfo>\n"
+		   "    </lap>\n"
+		   "  </laps>\n"
 		   "</race>\n\n"
 		   "For more information, please consult the README.md file\e[0m\n"
 	);
