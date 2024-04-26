@@ -3,9 +3,6 @@
 This program was made using both Flex and Bison.
 The goal of it is to analyze a given xml file containing the timing on each lap of a driver and check if the values are valid. If they are, it will return the laps in which the driver made the fastests sectors and lap and the compound they were using
 
-## TODO
-- [ ] Comprobar todo
-
 ## XML Template
 The admited xml files must have the following syntax
 ```
@@ -31,6 +28,23 @@ The admited xml files must have the following syntax
 	</laps>
 </race>
 ```
+- totalLaps, driverNum, lapNumber and tyreLife only accept positive integers of 1 to 3 digits
+- circuit and driverName only accept letter from the english language and the space character
+- incidencies only accept the following values
+	- RedFlag
+	- YellowFlag
+	- TrackLimits
+	- PIT_STOP
+	- DNF
+	- DSQ
+	- LAPPED
+	- (*empty*)
+- tyre only accepts the following values
+	- C1, C2, C3, C4 or C5
+	- FW (full wet)
+	- IM (intermediate)
+- The time for the sectors and lapTime has to be written 
+It does not admit comments
 
 ## Validations
 The program will check the following aspects:
@@ -63,9 +77,11 @@ Fastest sector 3 : tt:tt.ttt in lap X with tyres Y on Z laps
 Fastest lap : tt:tt.ttt in lap X with tyres Y on Z laps
 ```
 
-## Compiling/running
-A Makefile is given to simplify this process. 
+## Compiling/running/testing
+A Makefile and a folder 'testFiles' are given to simplify it
 
-`make compile` compiles all the modules and generates an executable called 'F1TimeCheck'
+`make compile` compiles all the modules and generates the executable called 'F1TimeCheck'
 
-`make all` compiles the modules and executes the program with the 2 example xml files
+`make all` compiles the modules and executes the program with the 2 correct xml files
+
+`make test` compiles the modules and executes the program with the 15 different test files

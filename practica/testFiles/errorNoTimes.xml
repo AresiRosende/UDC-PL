@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<race>
+	<circuit>Suzuka Circuit</circuit>
+	<totalLaps>3</totalLaps>
+	<driverNum>14</driverNum>
+	<driverName>Fernando Alonso</driverName>
+	<laps>
+		<lap>
+			<lapNumber>1</lapNumber>
+			<incidencies></incidencies>
+			<lapInfo>
+				<tyre>C1</tyre>
+				<tyreLife>0</tyreLife>
+				<sector1>NoTime</sector1>
+				<sector2>NoTime</sector2>
+				<sector3>NoTime</sector3>
+				<lapTime>NoTime</lapTime>
+			</lapInfo>
+		</lap>
+		<lap>
+			<lapNumber>2</lapNumber>
+			<incidencies></incidencies>
+			<lapInfo>
+				<tyre>C1</tyre>
+				<tyreLife>1</tyreLife>
+				<sector1>NoTime</sector1>
+				<sector2>NoTime</sector2>
+				<sector3>NoTime</sector3>
+				<lapTime>NoTime</lapTime>
+			</lapInfo>
+		</lap>
+		<lap>
+			<lapNumber>3</lapNumber>
+			<incidencies></incidencies>
+			<lapInfo>
+				<tyre>C1</tyre>
+				<tyreLife>2</tyreLife>
+				<sector1>NoTime</sector1>
+				<sector2>NoTime</sector2>
+				<sector3>NoTime</sector3>
+				<lapTime>NoTime</lapTime>
+			</lapInfo>
+		</lap>
+	</laps>
+</race>

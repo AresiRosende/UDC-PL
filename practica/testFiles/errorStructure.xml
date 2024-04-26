@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <race>
 	<circuit>Suzuka Circuit</circuit>
-	<totalLaps>10</totalLaps>
 	<driverNum>14</driverNum>
 	<driverName>Fernando Alonso</driverName>
 	<laps>
@@ -21,7 +20,7 @@
 			<lapNumber>2</lapNumber>
 			<incidencies>PitStop</incidencies>
 			<lapInfo>
-				<tyre>H</tyre>
+				<tyre>C2</tyre>
 				<tyreLife>0</tyreLife>
 				<sector1>10:00.000</sector1>
 				<sector2>10:00.000</sector2>

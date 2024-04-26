@@ -19,7 +19,6 @@ num				[0-9]{1,3}
 
 "\n"							{yylineno++;}
 {prolog}						{return XMLPROLOG;}
-
 "RedFlag"						{return RED_FLAG;}
 "YellowFlag"					{return YELLOW_FLAG;}
 "PitStop"						{return PIT_STOP;}
@@ -73,8 +72,8 @@ num				[0-9]{1,3}
 %%
 
 int yyerror() {
-	printf("\e[0;31mError: file structure is different from expected (line %d)\n", yylineno);
-	printf("Last string of text read: '%s'\e[0m\n", yytext);
+	printf("\e[0;31mError: file structure or tag value is different from expected (line %d)\n", yylineno);
+	printf("Last string of text read: '%s'\e[0m", yytext);
 	printf("\e[0;33m\nShould be like this:\n");
 	printf("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 		   "<race>\n"
@@ -96,7 +95,7 @@ int yyerror() {
 		   "      </lapInfo>\n"
 		   "    </lap>\n"
 		   "  </laps>\n"
-		   "</race>\n\n"
+		   "</race>\n"
 		   "For more information, please consult the README.md file\e[0m\n"
 	);
 	exit(0);

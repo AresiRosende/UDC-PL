@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<race>
+	<circuit>Suzuka</circuit>
+	<totalLaps>53</totalLaps>
+	<driverNum>23</driverNum>
+	<driverName>Alex Albon</driverName>
+	<laps>
+		<lap>
+			<lapNumber>1</lapNumber>
+			<incidencies>DNF</incidencies>
+			<lapInfo>
+				<tyre>C2</tyre>
+				<tyreLife>0</tyreLife>
+				<sector1>00:51.043</sector1>
+				<sector2>01:09.943</sector2>
+				<sector3>NoTime</sector3>
+				<lapTime>NoTime</lapTime>
+			</lapInfo>
+		</lap>
+	</laps>
+</race>
