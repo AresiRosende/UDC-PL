@@ -50,11 +50,10 @@ It does not admit comments
 The program will check the following aspects:
 - [x] The xml file follows the structure of the template
 - [x] No tag can be null except for the 'incidencies' one
-- [x] totalLaps must be an integer of 1-3 digits
-- [x] driverNum must be an integer of 1-3 digits
-- [x] driverName and circuit can only contain letters. Length has to be less than 80 chars. Names with ' in them should be written without it (Pato O'Ward -> Pato OWard)
+- [x] totalLaps, driverNum, tyreLife and lapNumber must be an integer of 1-3 digits
+- [x] driverName and circuit can only contain letters and the space character. Names with ' in them have to be written without it (Pato O'Ward -> Pato OWard)
 - [x] the total number of 'lap' registers inside 'laps' must be equal to totalLaps (except if there's an incidency such as DSQ, DNF or Lapped)
-- [x] lapNumber should never be higher than totalLaps, and should be increasing by 1 for each register
+- [x] lapNumber can never be higher than totalLaps, and will increase by 1 for each register
 - [x] incidencies can only accept 7 different values
 	- [x] RedFlag
 	- [x] YellowFlag
@@ -64,7 +63,7 @@ The program will check the following aspects:
 - [x] tyres can only be C1-5, Full Wet (FW) and Intermediate (IM), and there cannot be more than 3 standard compounds in a single race
 - [x] tyrelife must increase by one, except if there is a pitstop
 - [x] the sum of all sectors must be equal to lapTime
-- [x] For multiple reasons, there may be times that a sector has no time (NoTime), in which cases, the total of the sectors will not be sumed
+- [x] For multiple reasons, there may be times that a sector or lap has no time (NoTime), in which cases, the total of the sectors will not be summed
 
 ## Output
 ```
