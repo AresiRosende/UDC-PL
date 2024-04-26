@@ -67,14 +67,30 @@ The program will check the following aspects:
 - [x] For multiple reasons, there may be times that a sector has no time (NoTime), in which cases, the total of the sectors will not be sumed
 
 ## Output
-Once a file has been validated, the program will return
 ```
-Driver 'Aaaa Bbbbb' 00
-Ended race on lap C (reason: D) /*in case of DSQ, DNF or Lapped*/ 
-Fastest sector 1 : tt:tt.ttt in lap X with tyres Y on Z laps
-Fastest sector 2 : tt:tt.ttt in lap X with tyres Y on Z laps
-Fastest sector 3 : tt:tt.ttt in lap X with tyres Y on Z laps
-Fastest lap : tt:tt.ttt in lap X with tyres Y on Z laps
+-----------
+ Circuit: Suzuka 
+ Laps: 53
+ Driver: Fernando Alonso | 14
+
+Fastest sector 1 : 00:33.924 in lap 53 with C1 tyres on 19 laps
+Fastest sector 2 : 00:42.332 in lap 53 with C1 tyres on 19 laps
+Fastest sector 3 : 00:18.279 in lap 36 with C1 tyres on 02 laps
+Fastest lap      : 01:34.726 in lap 53 with C1 tyres on 19 laps
+```
+
+or
+```
+-----------
+ Circuit: Suzuka 
+ Laps: 53
+ Completed laps: 1 (DNF)
+ Driver: Alex Albon | 23
+
+Fastest sector 1 : 00:51.043 in lap 01 with C2 tyres on 00 laps
+Fastest sector 2 : 01:09.943 in lap 01 with C2 tyres on 00 laps
+No time found for any sector 3
+No time found for any lap
 ```
 
 ## Compiling/running/testing
@@ -82,6 +98,6 @@ A Makefile and a folder 'testFiles' are given to simplify it
 
 `make compile` compiles all the modules and generates the executable called 'F1TimeCheck'
 
-`make all` compiles the modules and executes the program with the 2 correct xml files
+`make all` compiles the modules and executes the program with the 3 correct xml files
 
 `make test` compiles the modules and executes the program with the 15 different test files
