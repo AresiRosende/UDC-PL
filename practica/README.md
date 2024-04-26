@@ -6,7 +6,6 @@ The goal of it is to analyze a given xml file containing the timing on each lap 
 ## TODO
 - [ ] La funcion para sumar los tiempos
 - [ ] El nombre del piloto y el del circuito los copia del reves
-- [ ] No reconoce bien los FW y IM
 
 ## XML Template
 The admited xml files must have the following syntax
@@ -51,7 +50,7 @@ The program will check the following aspects:
 	- [x] PitStop (checks that there werent used more than 3 different compounds, excluding full wet and intermediates)
 - [x] tyres can only be C1-5, Full Wet (FW) and Intermediate (IM), and there cannot be more than 3 standard compounds in a single race
 - [x] tyrelife must increase by one, except if there is a pitstop
-- [ ] the sum of all sectors must be equal to lapTime
+- [x] the sum of all sectors must be equal to lapTime
 - [x] For multiple reasons, there may be times that a sector has no time (NoTime), in which cases, the total of the sectors will not be sumed
 
 ## Output

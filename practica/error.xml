@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <race>
 	<circuit>Suzuka Circuit</circuit>
-	<totalLaps>4</totalLaps>
+	<totalLaps>10</totalLaps>
 	<driverNum>14</driverNum>
 	<driverName>Fernando Alonso</driverName>
 	<laps>
@@ -47,6 +47,30 @@
 			<lapInfo>
 				<tyre>FW</tyre>
 				<tyreLife>0</tyreLife>
+				<sector1>01:30.000</sector1>
+				<sector2>10:00.000</sector2>
+				<sector3>10:00.000</sector3>
+				<lapTime>21:30.000</lapTime>
+			</lapInfo>
+		</lap>
+		<lap>
+			<lapNumber>5</lapNumber>
+			<incidencies></incidencies>
+			<lapInfo>
+				<tyre>FW</tyre>
+				<tyreLife>1</tyreLife>
+				<sector1>01:30.000</sector1>
+				<sector2>10:00.000</sector2>
+				<sector3>10:00.000</sector3>
+				<lapTime>21:30.000</lapTime>
+			</lapInfo>
+		</lap>
+		<lap>
+			<lapNumber>6</lapNumber>
+			<incidencies>DNF</incidencies>
+			<lapInfo>
+				<tyre>FW</tyre>
+				<tyreLife>2</tyreLife>
 				<sector1>01:30.000</sector1>
 				<sector2>10:00.000</sector2>
 				<sector3>10:00.000</sector3>

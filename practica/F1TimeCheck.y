@@ -8,14 +8,16 @@ void yyerror (char const *);
 extern int yylineno;
 extern int yylex();
 
-int usedTyres = 1, pitStop = 0, currentLap = 1, invalidTime = 0, currentTyreLife = 0, notCompleted = 0;
+int usedTyres = 1, pitStop = 0, currentLap = 1, invalidTime = 0, currentTyreLife = 0;
 int totallaps, driverNumber;
 int no_time = 0;
 int compound1 = 0, compound2 = 0, compound3 = 0;
+char notCompleted[10] = "";
 char circuitName[80];
 char currentTyre[2];
 char driverName[80];
-char stringAux[80];
+char stringAux[256];
+char temp[64];
 char times[4][20];
 char tyres[4][10];
 int laps[4];
@@ -46,16 +48,17 @@ int calc_complete_time() {
 
 
 void yywrap() {
-	printf("\e[0;32mCircuit: %s\n", circuitName);
-	printf("Laps: %d\n", totallaps);
-	if (notCompleted)
-		printf("Completed laps: %d\n", currentLap);
-	printf("%s | %d\n",driverName, driverNumber);
-	printf("Fastest sector 1 : %s in lap %d with %s tyres on %d laps\n", times[0], laps[0], tyres[0], tyrelife[0]);
-	printf("Fastest sector 2 : %s in lap %d with %s tyres on %d laps\n", times[1], laps[1], tyres[1], tyrelife[1]);
-	printf("Fastest sector 3 : %s in lap %d with %s tyres on %d laps\n", times[2], laps[2], tyres[2], tyrelife[2]);
-	printf("Fastest lap : %s in lap %d with %s tyres on %d laps\n", times[3], laps[3], tyres[3], tyrelife[3]);
+	printf("\nCircuit: \e[0;34m%s\e[0m\n", circuitName);
+	printf("Laps: \e[0;34m%d\e[0m\n", totallaps);
+	if (strcmp(notCompleted, ""))
+		printf("Completed laps: \e[0;34m%d\e[0m (\e[0;34m%s\e[0m)\n", currentLap, notCompleted);
+	printf("Driver: \e[0;34m%s\e[0m| \e[0;34m%d\e[0m\n\n",driverName, driverNumber);
+	printf("Fastest sector 1 : \e[0;34m%s\e[0m in lap \e[0;34m%d\e[0m with \e[0;34m%s\e[0m tyres on \e[0;34m%d\e[0m laps\n", times[0], laps[0], tyres[0], tyrelife[0]);
+	printf("Fastest sector 2 : \e[0;34m%s\e[0m in lap \e[0;34m%d\e[0m with \e[0;34m%s\e[0m tyres on \e[0;34m%d\e[0m laps\n", times[1], laps[1], tyres[1], tyrelife[1]);
+	printf("Fastest sector 3 : \e[0;34m%s\e[0m in lap \e[0;34m%d\e[0m with \e[0;34m%s\e[0m tyres on \e[0;34m%d\e[0m laps\n", times[2], laps[2], tyres[2], tyrelife[2]);
+	printf("Fastest lap      : \e[0;34m%s\e[0m in lap \e[0;34m%d\e[0m with \e[0;34m%s\e[0m tyres on \e[0;34m%d\e[0m laps\n", times[3], laps[3], tyres[3], tyrelife[3]);
 	printf("\n\e[0m");
+	exit(0);
 }
 
 
@@ -91,7 +94,7 @@ race
 	: OPEN_RACE circuit totallaps dorsal nombre lapsBody CLOSE_RACE
 ;
 circuit
-	: OPEN_CIRCUIT multiword CLOSE_CIRCUIT {strcpy(circuitName, stringAux); strcpy(stringAux, "");}
+	: OPEN_CIRCUIT multiword CLOSE_CIRCUIT {strcpy(circuitName, stringAux); strcpy(stringAux, ""); strcpy(temp, "");}
 	| OPEN_CIRCUIT CLOSE_CIRCUIT {
 		printf("\n\n");
 		printf("\e[0;31mError: Circuit name not declared (line %d)\e[0m\n", yylineno);
@@ -121,7 +124,7 @@ dorsal
 ;
 
 nombre
-	: OPEN_NAME multiword CLOSE_NAME {strcpy(driverName, stringAux); strcpy(stringAux, "");}
+	: OPEN_NAME multiword CLOSE_NAME {strcpy(driverName, stringAux); strcpy(stringAux, ""); strcpy(temp, "");}
 	| OPEN_NAME CLOSE_NAME {
 		printf("\n\n");
 		printf("\e[0;31mError: Driver's name not declared (line %d)\e[0m\n", yylineno);
@@ -191,9 +194,9 @@ incidency
 	| YELLOW_FLAG  	{invalidTime = 0; pitStop = 0;}
 	| TRACKLIMITS  	{invalidTime = 1; pitStop = 0;}
 	| PIT_STOP 		{invalidTime = 0; pitStop = 1;}
-	| DNF 			{notCompleted = 1; yywrap();}
-	| DSQ 			{notCompleted = 1; yywrap();}
-	| LAPPED 		{notCompleted = 1; yywrap();}
+	| DNF 			{strcpy(notCompleted,"DNF"); yywrap();}
+	| DSQ 			{strcpy(notCompleted,"DSQ"); yywrap();}
+	| LAPPED 		{strcpy(notCompleted,"LAPPED"); yywrap();}
 	| /*empty*/ 	{invalidTime = 0; pitStop = 0;}
 ;
 
@@ -327,22 +330,35 @@ laptime
 ;
 
 multiword
-	: TEXT multiword {strcat(stringAux, $1);}
-	| TEXT {strcat(stringAux, $1);}
+	: TEXT multiword {
+		strcpy(temp, $1);
+		strcat(temp, " ");
+		strcat(temp, stringAux);
+		strcpy(stringAux, temp);
+	}
+	| TYRE multiword {
+		strcpy(temp, $1);
+		strcat(temp, " ");
+		strcat(temp, stringAux);
+		strcpy(stringAux, temp);
+	} 		/* very specific, but possible */
+	| TEXT {
+		strcpy(temp, $1);
+		strcat(temp, " ");
+		strcat(temp, stringAux);
+		strcpy(stringAux, temp);
+	}
+	| TYRE {
+		strcpy(temp, $1);
+		strcat(temp, " ");
+		strcat(temp, stringAux);
+		strcpy(stringAux, temp);
+	}					/* very specific, but possible */
 ;
 %%
 
 int main(int argc, char *argv[]) {
 	extern FILE *yyin;
-
-char *a = "10:00.000";
-char *b = "01:00.000";
-
-if (strcmp(a, b) > 0)
-	printf("%s es mayor que %s\n\n",a , b);
-else 
-	printf("%s es mayor que %s\n\n", b ,a );
-
 
 	char *ext = strrchr(argv[1], '.');
 	if (strcmp(ext, ".xml") != 0) {
